@@ -15,7 +15,7 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.2
       with:
-        server: ftp://ftp.domingosbraganha.tech/
+        server: ftp://compliancescreening.solutions
         username: ${{ secrets.user_todo }}
         password: ${{ secrets.pass_todo }}
         server-dir: /public_html/todo/
