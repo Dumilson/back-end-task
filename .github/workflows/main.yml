@@ -1,0 +1,21 @@
+on:
+   push:
+      branches:
+        - "master"
+
+name: 🚀  Deploy Website Todo Tasks
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2
+
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.2
+      with:
+        server: ftp://domingosbraganha.tech
+        username: ${{ secrets.user_todo }}
+        password: ${{ secrets.pass_todo }}
+        server-dir: /public_html/todo/
