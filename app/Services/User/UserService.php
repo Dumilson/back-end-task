@@ -37,7 +37,7 @@ class UserService
 
   public function getAllTasksUser(int $id): Object
   {
-    return $this->repository->select('id', 'name')->where('id', $id)->with(['tasks'])->get()->map(function ($task) {
+    return $this->repository->select('id', 'name')->where('id', $id)->with(['tasks','tasks.users:id,name'])->get()->map(function ($task) {
       $task->tasks->makeHidden('pivot');
       return $task;
     });
