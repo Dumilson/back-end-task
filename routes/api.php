@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Task\TaskController;
 use App\Http\Controllers\User\Auth\AuthController;
 use App\Http\Controllers\User\Manager\UserController;
 use Illuminate\Http\Request;
@@ -28,6 +29,14 @@ Route::prefix('v1')->group(function () {
             Route::post('store', 'store');
             Route::get('get_all_users_paginate', 'getAllUsersPaginate');
             Route::get('get_all_users', 'getAllUsers');
+            Route::get('get_tasks_user/{id?}', 'getAllTaskUser');
+        });
+
+        Route::prefix('tasks')->controller(TaskController::class)->group(function () {
+            Route::post('store', 'store');
+            Route::get('/', 'index');
+            Route::delete('delete/{task?}', 'destroy');
+            Route::put('update/{task?}', 'update');
         });
     });
 });
