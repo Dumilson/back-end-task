@@ -22,7 +22,7 @@ class UserService
 
   public function getAllUsersPaginate(): Object
   {
-    return $this->repository->paginate(20);
+    return $this->repository->get();
   }
 
   public function getAllUsers(): Object

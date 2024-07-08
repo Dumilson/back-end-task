@@ -34,13 +34,13 @@ class StoreUpdateTaskRequest extends FormRequest
     public function messages()
     {
         return [
-            'deadline.after' => 'O campo Data final deve ser uma data posterior a hoje'
+            'deadline.after' => 'O campo Data de entrega deve ser uma data posterior a hoje'
         ];
     }
     public function attributes()
     {
         return [
-            "deadline" => "Data final",
+            "deadline" => "Data de entrega",
             "users_id" => "usuário(s)"
         ];
     }
