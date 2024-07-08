@@ -16,7 +16,9 @@ Antes de começar, certifique-se de ter os seguintes programas instalados em sua
 
 ### 1. Clonar o projeto do GitHub
 
-Abra seu terminal e execute o seguinte comando para clonar o repositório:
+1. Abra o terminal.
+2. Navegue até o diretório onde você deseja clonar o projeto.
+3. Execute o comando abaixo para clonar o repositório:
 
 ```sh
 git clone https://github.com/Dumilson/back-end-task.git
