@@ -38,7 +38,7 @@ class UserController extends Controller
      *         description="Usuário registrado com sucesso",
      *         @OA\JsonContent(
      *             @OA\Property(property="status", type="string", example="success"),
-     *             @OA\Property(property="message", type="string", example="Usuario registrado com sucesso"),
+     *             @OA\Property(property="message", type="string", example="usuário registrado com sucesso"),
      *             @OA\Property(property="data", type="object",
      *                 @OA\Property(property="id", type="integer", example=1),
      *                 @OA\Property(property="name", type="string", example="John Doe"),
@@ -52,7 +52,7 @@ class UserController extends Controller
      *         description="Erro ao cadastrar usuário",
      *         @OA\JsonContent(
      *             @OA\Property(property="status", type="string", example="error"),
-     *             @OA\Property(property="message", type="string", example="Erro ao cadastrar usuario")
+     *             @OA\Property(property="message", type="string", example="Erro ao cadastrar usuário")
      *         )
      *     )
      * )
@@ -61,9 +61,9 @@ class UserController extends Controller
     {
         $stm = $this->userService->save($storeUserRequest->all());
         if ($stm) {
-            return Response::success("Usuario registrado com sucesso", 201, ["data" => $stm]);
+            return Response::success("usuário registrado com sucesso", 201, ["data" => $stm]);
         }
-        return Response::error("Erro ao cadastrar usuario", 500);
+        return Response::error("Erro ao cadastrar usuário", 500);
     }
 
     /**
@@ -77,7 +77,7 @@ class UserController extends Controller
      *         description="Lista de usuários",
      *         @OA\JsonContent(
      *             @OA\Property(property="status", type="string", example="success"),
-     *             @OA\Property(property="message", type="string", example="Lista de usuarios"),
+     *             @OA\Property(property="message", type="string", example="Lista de usuários"),
      *             @OA\Property(property="data", type="array",
      *                 @OA\Items(
      *                     @OA\Property(property="id", type="integer", example=1),
@@ -93,7 +93,7 @@ class UserController extends Controller
      *         description="Sem usuários",
      *         @OA\JsonContent(
      *             @OA\Property(property="status", type="string", example="success"),
-     *             @OA\Property(property="message", type="string", example="Sem usuarios")
+     *             @OA\Property(property="message", type="string", example="Sem usuários")
      *         )
      *     )
      * )
@@ -102,9 +102,9 @@ class UserController extends Controller
     {
         $stm = $this->userService->getAllUsersPaginate();
         if ($stm) {
-            return Response::success("Lista de usuarios ", 200, ["data" => $stm]);
+            return Response::success("Lista de usuários ", 200, ["data" => $stm]);
         }
-        return Response::success("Sem usuarios", 404);
+        return Response::success("Sem usuários", 404);
     }
 
     /**
@@ -118,7 +118,7 @@ class UserController extends Controller
      *         description="Lista de usuários",
      *         @OA\JsonContent(
      *             @OA\Property(property="status", type="string", example="success"),
-     *             @OA\Property(property="message", type="string", example="Lista de usuarios"),
+     *             @OA\Property(property="message", type="string", example="Lista de usuários"),
      *             @OA\Property(property="data", type="array",
      *                 @OA\Items(
      *                     @OA\Property(property="id", type="integer", example=1),
@@ -132,7 +132,7 @@ class UserController extends Controller
      *         description="Sem usuários",
      *         @OA\JsonContent(
      *             @OA\Property(property="status", type="string", example="success"),
-     *             @OA\Property(property="message", type="string", example="Sem usuarios")
+     *             @OA\Property(property="message", type="string", example="Sem usuários")
      *         )
      *     )
      * )
@@ -141,15 +141,15 @@ class UserController extends Controller
     {
         $stm = $this->userService->getAllUsers();
         if ($stm) {
-            return Response::success("Lista de usuarios ", 200, ["data" => $stm]);
+            return Response::success("Lista de usuários ", 200, ["data" => $stm]);
         }
-        return Response::success("Sem usuarios", 404);
+        return Response::success("Sem usuários", 404);
     }
 
     /**
      * @OA\Get(
      *     path="/api/v1/users/get_tasks_user/{id}",
-     *     summary="Listar tarefas do usuario",
+     *     summary="Listar tarefas do usuário",
      *     tags={"User"},
      *     security={{ "sanctum":{} }},
      *     @OA\Parameter(
@@ -159,11 +159,11 @@ class UserController extends Controller
      *         @OA\Schema(
      *             type="integer"
      *         ),
-     *         description="Id do usuario"
+     *         description="Id do usuário"
      *     ),
      *     @OA\Response(
      *         response=200,
-     *         description="Lista de tarefas do usuario",
+     *         description="Lista de tarefas do usuário",
      *         @OA\JsonContent(
      *             type="object",
      *             @OA\Property(
@@ -174,7 +174,7 @@ class UserController extends Controller
      *             @OA\Property(
      *                 property="message",
      *                 type="string",
-     *                 example="Lista de tarefas do usuario"
+     *                 example="Lista de tarefas do usuário"
      *             ),
      *             @OA\Property(
      *                 property="data",
@@ -223,7 +223,7 @@ class UserController extends Controller
     {
         $stm = $this->userService->getAllTasksUser($id);
         if ($stm) {
-            return Response::success("Lista de tarefas do usuario ", 200, ["data" => $stm]);
+            return Response::success("Lista de tarefas do usuário ", 200, ["data" => $stm]);
         }
         return Response::success("Sem tarefas", 404);
     }

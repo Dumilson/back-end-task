@@ -37,12 +37,7 @@ class TaskService
 
   public function update(Task $task, array $data): bool
   {       
-    $stmt = $this->repository->find($task->id)->update([
-      'title' => $data['title'],
-      'description' => $data['description'],
-      'deadline'  => $data['deadline']
-    ]);
-
+    $stmt = $this->repository->find($task->id)->update($data);
     $this->repositoryUserService->where('task_id', $task->id)->delete();
     foreach ($data['users_id'] as $id_user) {
       $this->repositoryUserService->create([

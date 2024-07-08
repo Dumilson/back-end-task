@@ -416,7 +416,7 @@
                     "Tasks"
                 ],
                 "summary": "Deleta uma tarefa existente",
-                "operationId": "e8378c0fcac03a42b4f585a9d937a0b4",
+                "operationId": "da14529f1bc62bf0a94130d0c30071e3",
                 "parameters": [
                     {
                         "name": "task",
@@ -693,7 +693,7 @@
                                         },
                                         "message": {
                                             "type": "string",
-                                            "example": "Usuario registrado com sucesso"
+                                            "example": "usuário registrado com sucesso"
                                         },
                                         "data": {
                                             "properties": {
@@ -734,7 +734,7 @@
                                         },
                                         "message": {
                                             "type": "string",
-                                            "example": "Erro ao cadastrar usuario"
+                                            "example": "Erro ao cadastrar usuário"
                                         }
                                     },
                                     "type": "object"
@@ -770,7 +770,7 @@
                                         },
                                         "message": {
                                             "type": "string",
-                                            "example": "Lista de usuarios"
+                                            "example": "Lista de usuários"
                                         },
                                         "data": {
                                             "type": "array",
@@ -814,7 +814,7 @@
                                         },
                                         "message": {
                                             "type": "string",
-                                            "example": "Sem usuarios"
+                                            "example": "Sem usuários"
                                         }
                                     },
                                     "type": "object"
@@ -850,7 +850,7 @@
                                         },
                                         "message": {
                                             "type": "string",
-                                            "example": "Lista de usuarios"
+                                            "example": "Lista de usuários"
                                         },
                                         "data": {
                                             "type": "array",
@@ -886,7 +886,7 @@
                                         },
                                         "message": {
                                             "type": "string",
-                                            "example": "Sem usuarios"
+                                            "example": "Sem usuários"
                                         }
                                     },
                                     "type": "object"
@@ -907,13 +907,13 @@
                 "tags": [
                     "User"
                 ],
-                "summary": "Listar tarefas do usuario",
+                "summary": "Listar tarefas do usuário",
                 "operationId": "ee73ff07f6a650a2c20f9b7a07a31092",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "Id do usuario",
+                        "description": "Id do usuário",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -922,7 +922,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Lista de tarefas do usuario",
+                        "description": "Lista de tarefas do usuário",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -933,7 +933,7 @@
                                         },
                                         "message": {
                                             "type": "string",
-                                            "example": "Lista de tarefas do usuario"
+                                            "example": "Lista de tarefas do usuário"
                                         },
                                         "data": {
                                             "type": "array",
@@ -1027,16 +1027,16 @@
     },
     "tags": [
         {
-            "name": "Tasks",
-            "description": "Tasks"
-        },
-        {
             "name": "Auth",
             "description": "Auth"
         },
         {
             "name": "User",
             "description": "User"
+        },
+        {
+            "name": "Tasks",
+            "description": "Tasks"
         }
     ],
     "components": {
