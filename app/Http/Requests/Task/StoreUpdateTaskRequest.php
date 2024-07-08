@@ -24,6 +24,7 @@ class StoreUpdateTaskRequest extends FormRequest
         return [
             'title' => 'required|string|max:255',
             'description' => 'required|string',
+            'status' => 'nullable',
             'users_id' => 'required|array',
             'users_id.*' => 'exists:users,id',
             'deadline' => 'required|date|after:today',
@@ -40,7 +41,7 @@ class StoreUpdateTaskRequest extends FormRequest
     {
         return [
             "deadline" => "Data final",
-            "users_id" => "Usuario(s)"
+            "users_id" => "usuário(s)"
         ];
     }
 }
