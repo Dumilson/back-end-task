@@ -1,4 +1,4 @@
-# Projeto To Do List
+# Projecto To Do List
 
 Este documento fornece instruções detalhadas sobre como configurar e executar o projeto <b>To do List</b>.
 
