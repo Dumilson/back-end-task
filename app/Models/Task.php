@@ -9,6 +9,7 @@ class Task extends Model
 {
     use HasFactory;
 
+    protected $table = "tasks";
     protected $fillable = [
         'id',
         'title',
@@ -16,4 +17,11 @@ class Task extends Model
         'status',
         'deadline',
     ];
+
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'user_tasks');
+    }
+    
 }

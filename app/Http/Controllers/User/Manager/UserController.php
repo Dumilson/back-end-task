@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User\Manager;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\Manager\StoreUserRequest;
 use App\Http\Response;
+use App\Models\User;
 use App\Services\User\UserService;
 
 class UserController extends Controller
@@ -143,5 +144,87 @@ class UserController extends Controller
             return Response::success("Lista de usuarios ", 200, ["data" => $stm]);
         }
         return Response::success("Sem usuarios", 404);
+    }
+
+    /**
+     * @OA\Get(
+     *     path="/api/v1/users/get_tasks_user/{id}",
+     *     summary="Listar tarefas do usuario",
+     *     tags={"User"},
+     *     security={{ "sanctum":{} }},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="integer"
+     *         ),
+     *         description="Id do usuario"
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Lista de tarefas do usuario",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(
+     *                 property="status",
+     *                 type="boolean",
+     *                 example=true
+     *             ),
+     *             @OA\Property(
+     *                 property="message",
+     *                 type="string",
+     *                 example="Lista de tarefas do usuario"
+     *             ),
+     *             @OA\Property(
+     *                 property="data",
+     *                 type="array",
+     *                 @OA\Items(
+     *                     @OA\Property(property="id", type="integer", example=1),
+     *                     @OA\Property(property="name", type="string", example="Admin"),
+     *                     @OA\Property(
+     *                         property="tasks",
+     *                         type="array",
+     *                         @OA\Items(
+     *                             @OA\Property(property="id", type="integer", example=1),
+     *                             @OA\Property(property="title", type="string", example="Escrever testes automatizados"),
+     *                             @OA\Property(property="description", type="string", example="Teste automatizado"),
+     *                             @OA\Property(property="status", type="integer", example=1),
+     *                             @OA\Property(property="deadline", type="string", format="date", example="2024-07-08"),
+     *                             @OA\Property(property="created_at", type="string", format="date-time", example="2024-07-07T15:32:33.000000Z"),
+     *                             @OA\Property(property="updated_at", type="string", format="date-time", example="2024-07-07T22:38:54.000000Z")
+     *                         )
+     *                     )
+     *                 )
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Sem tarefas",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(
+     *                 property="status",
+     *                 type="boolean",
+     *                 example=false
+     *             ),
+     *             @OA\Property(
+     *                 property="message",
+     *                 type="string",
+     *                 example="Sem tarefas"
+     *             )
+     *         )
+     *     )
+     * )
+     */
+
+    public function getAllTaskUser(int $id)
+    {
+        $stm = $this->userService->getAllTasksUser($id);
+        if ($stm) {
+            return Response::success("Lista de tarefas do usuario ", 200, ["data" => $stm]);
+        }
+        return Response::success("Sem tarefas", 404);
     }
 }
